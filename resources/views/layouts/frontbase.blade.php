@@ -1,21 +1,13 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <title>@yield('title')</title>
-        @yield('head')
-    </head>
-    <body>
+        @include('home.head')
+    <body class="js">
+        @include('home.header')
 
-        <h1>Header</h1>
+        @section('content')@show
 
-        @section('sidebar')
-            This is the master sidebar.
+        @section('footer')
+           @include('home.footer')
         @show
-        <div class="container">
-            @yield('content')
-        </div>
-        <h1>Footer</h1>
-        @yield('footer')
-
     </body>
 </html>
