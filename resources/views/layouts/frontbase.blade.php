@@ -4,10 +4,9 @@
     <body class="js">
         @include('home.header')
 
-        @section('content')@show
+        @yield('content')
 
-        @section('footer')
-           @include('home.footer')
-        @show
+        @include('home.footer')
+        @yield('foot')
     </body>
 </html>
