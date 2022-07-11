@@ -32,6 +32,13 @@ Route::middleware([
 });
 
 
-// _-_-_-_-_-_-_-_-_-_-_-_-_-_-_ Admin Panel _-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+// _-_-_-_-_-_-_-_-_-_-_-_-_-_-_ Admin Panel Routes _-_-_-_-_-_-_-_-_-_-_-_-_-_-_ \\
 
 Route::get('/admin', [Admin\HomeController::class, 'index'])->name('admin');
+
+// Admin Category Routes
+Route::get('/admin/category',           [Admin\CategoryController::class, 'index'])->name('admin_category');
+Route::post('/admin/category/store',    [Admin\CategoryController::class, 'store'])->name('admin_category_store');
+Route::get('/admin/category/create',    [Admin\CategoryController::class, 'create'])->name('admin_category_create');
+Route::get('/admin/category/edit',      [Admin\CategoryController::class, 'edit'])->name('admin_category_edit');
+Route::get('/admin/category/destroy',   [Admin\CategoryController::class, 'destroy'])->name('admin_category_destroy');
