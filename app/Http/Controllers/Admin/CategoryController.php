@@ -16,7 +16,10 @@ class CategoryController extends Controller
     public function index()
     {
         //
-        return view('admin.category.index');
+        $data = Category::all();
+        return view('admin.category.index',[
+            'data'=>$data
+        ]);
     }
 
     /**
@@ -38,7 +41,14 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-
+        $data = new Category();
+        $data->parent_id = 0;
+        $data->title = $request->title;
+        $data->keywords = $request->keywords;
+        $data->description = $request->description;
+        $data->image = $request->image;
+        $data->status = $request->status;
+        $data->save();
     }
 
     /**
@@ -47,9 +57,12 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show(Category $category, $id)
     {
-        //
+        $data = Category::find($category, $id);
+        return view('admin.category.show',[
+            'data' => $data
+        ]);
     }
 
     /**

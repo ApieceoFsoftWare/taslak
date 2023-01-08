@@ -10,12 +10,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Add Category</h1>
+                    <h1>Kategori Ekleme</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Blank Page</li>
+                        <li class="breadcrumb-item"><a href="#">Anasayfa</a></li>
+                        <li class="breadcrumb-item active">Kategori İşlemleri</li>
                     </ol>
                 </div>
             </div>
@@ -28,25 +28,31 @@
         <!-- Default box -->
         <div class="card card-primary">
             <div class="card-header">
-                <h3 class="card-title">Category Elements</h3>
+                <h3 class="card-title">Kategori Elementleri</h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
             <form role="form" action="/admin/category/store" method="post">
                 @csrf
                 <div class="card-body">
-
+                    <div class="form-group">
+                        <label for="form-control">Parent ID</label>
+                        <select class="form-control" name="status">
+                            <option>Enable</option>
+                            <option>Disable</option>
+                        </select>
+                    </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Title</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter a title" name="title">
+                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter a title" name="title">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Keywords</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Keywords" name="keywords">
+                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter Keywords" name="keywords">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Description</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Description" name="description">
+                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter Description" name="description">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputFile">Image</label>

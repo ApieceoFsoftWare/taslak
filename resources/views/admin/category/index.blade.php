@@ -1,81 +1,142 @@
 @extends('layouts.adminbase')
 
-@section('title', 'Category List')
+@section('title', 'Kategori Sayfası')
+@section('head')
+<!-- DataTables -->
+    <link rel="stylesheet" href="{{asset('assets')}}/admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="{{asset('assets')}}/admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="{{asset('assets')}}/admin/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+@endsection
+
 
 @section('content')
-<!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
+    <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>Category List</h1>
-                </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="/admin">Home</a></li>
-                        <li class="breadcrumb-item active">Blank Page</li>
-                    </ol>
-                </div>
-            </div>
-        </div><!-- /.container-fluid -->
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Kategori Listesi</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Anasayfa</a></li>
+              <li class="breadcrumb-item active">Kategori Listele</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
     </section>
 
     <!-- Main content -->
     <section class="content">
-
-        <!-- Default box -->
-        <div class="card card-primary">
-            <div class="card-header">
-                <h3 class="card-title">Creating</h3>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Kategorilerin listesi aşağıdadır.</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped">
+                  <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Parent ID</th>
+                    <th>Title</th>
+                    <th>Status</th>
+                    <th>Updated Time</th>
+                    <th style="width: 40px">Edit</th>
+                    <th style="width: 40px">Delete</th>
+                    <th style="width: 40px">Show</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                    @foreach ($data as $item)
+                      <tr>
+                        <td>{{$item->id}}</td>
+                        <td>{{$item->parent_id}}</td>
+                        <td>{{$item->title}}</td>
+                        <td>{{$item->status}}</td>
+                        <td>{{$item->updated_at}}</td>
+                        <td><a href="/admin/category/edit/{{$item->id}}/">Edit</a></td>
+                        <td><a href="/admin/category/destroy/{{$item->id}}/">Delete</a></td>
+                        <td><a href="/admin/category/show/{{$item->id}}/">Show</a></td>
+                      </tr>
+                    @endforeach
+                  </tbody>
+                  <tfoot>
+                    <tr>
+                      <th>ID</th>
+                      <th>Parent ID</th>
+                      <th>Title</th>
+                      <th>Status</th>
+                      <th>Updated Time</th>
+                      <th style="width: 40px">Edit</th>
+                      <th style="width: 40px">Delete</th>
+                      <th style="width: 40px">Show</th>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
+              <!-- /.card-body -->
             </div>
-            <!-- /.card-header -->
-            <!-- form start -->
-            <form role="form" action="/admin/category/store">
-                @csrf
-                <div class="card-body">
-
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Category Name</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputFile">Image</label>
-                        <div class="input-group">
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="exampleInputFile">
-                                <label for="exampleInputFile" class="custom-file-label">Choose File</label>
-                            </div>
-                            <div class="input-group-append">
-                                <span class="input-group-text" id="">Upload</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="form-control">Status</label>
-                        <select class="form-control">
-                            <option>Enable</option>
-                            <option>Disable</option>
-                        </select>
-                    </div>
-                </div>
-
-                <!-- /.card-body -->
-
-                <div class="card-footer">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
-            </form>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
         </div>
-        <!-- /.card -->
-
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
     </section>
     <!-- /.content -->
-</div>
-<!-- /.content-wrapper -->
+  </div>
+  <!-- /.content-wrapper -->
+@endsection
+
+@section('foot')
+
+    <!-- jQuery -->
+    <script src="{{asset('assets')}}/admin/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="{{asset('assets')}}/admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- DataTables  & Plugins -->
+    <script src="{{asset('assets')}}/admin/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="{{asset('assets')}}/admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="{{asset('assets')}}/admin/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="{{asset('assets')}}/admin/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="{{asset('assets')}}/admin/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="{{asset('assets')}}/admin/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+    <script src="{{asset('assets')}}/admin/plugins/jszip/jszip.min.js"></script>
+    <script src="{{asset('assets')}}/admin/plugins/pdfmake/pdfmake.min.js"></script>
+    <script src="{{asset('assets')}}/admin/plugins/pdfmake/vfs_fonts.js"></script>
+    <script src="{{asset('assets')}}/admin/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+    <script src="{{asset('assets')}}/admin/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+    <script src="{{asset('assets')}}/admin/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="{{asset('assets')}}/admin/dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="{{asset('assets')}}/admin/dist/js/demo.js"></script>
+    <!-- Page specific script -->
+    
+    <script>
+    $(function () {
+        $("#example1").DataTable({
+        "responsive": true, "lengthChange": false, "autoWidth": false,
+        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+        $('#example2').DataTable({
+        "paging": true,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": true,
+        "info": true,
+        "autoWidth": false,
+        "responsive": true,
+        });
+    });
+    </script>
 @endsection

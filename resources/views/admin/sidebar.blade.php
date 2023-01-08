@@ -1,9 +1,9 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="{{asset('assets/adminLTE')}}/index3.html" class="brand-link">
+    <a href="/admin" class="brand-link">
         <img src="{{asset('assets/adminLTE')}}/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">AdminLTE 3</span>
+        <span class="brand-text font-weight-light">Teammate Panel</span>
     </a>
 
     <!-- Sidebar -->
@@ -35,6 +35,68 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
+                     
+                     <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-edit"></i>
+                            <p>
+                                Kullanıcı İşlemlemleri
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Kullanıcıları Listele</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{asset('assets/adminLTE')}}/index2.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Kullanıcı Ekle</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{asset('assets/adminLTE')}}/index3.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Kullanıcı Güncelle</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{asset('assets/adminLTE')}}/index3.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Kullanıcı Sil</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                     <li class="nav-item">
+                        <a href="" class="nav-link">
+                            <i class="nav-icon fas fa-edit"></i>
+                            <p>
+                                Kategori İşlemlemleri
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="/admin/category" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Kategorileri Listele</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/admin/category/create" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Kategori Ekle</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+            <!--
+
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -64,6 +126,7 @@
                         </li>
                     </ul>
                 </li>
+
                 <li class="nav-item">
                     <a href="{{asset('assets/adminLTE')}}widgets.html" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
@@ -73,6 +136,7 @@
                         </p>
                     </a>
                 </li>
+
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-copy"></i>
@@ -133,6 +197,7 @@
                         </li>
                     </ul>
                 </li>
+
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-chart-pie"></i>
@@ -168,6 +233,7 @@
                         </li>
                     </ul>
                 </li>
+
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-tree"></i>
@@ -666,6 +732,7 @@
                         <p>Informational</p>
                     </a>
                 </li>
+            -->
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
