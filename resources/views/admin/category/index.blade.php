@@ -60,11 +60,15 @@
                         <td>{{$item->id}}</td>
                         <td>{{$item->parent_id}}</td>
                         <td>{{$item->title}}</td>
-                        <td>{{$item->status}}</td>
+                        @if ($item->status == 'Enable')
+                        <td class="text-success">{{$item->status}}</td>
+                        @else
+                        <td class="text-danger">{{$item->status}}</td>
+                        @endif
                         <td>{{$item->updated_at}}</td>
-                        <td><a href="/admin/category/edit/{{$item->id}}/">Edit</a></td>
-                        <td><a href="/admin/category/destroy/{{$item->id}}/">Delete</a></td>
-                        <td><a href="/admin/category/show/{{$item->id}}/">Show</a></td>
+                        <td><a href="/admin/category/edit/{{$item->id}}" class="btn btn-block btn-primary">Edit</a></td>
+                        <td><a href="/admin/category/destroy/{{$item->id}}" class="btn btn-block btn-danger">Delete</a></td>
+                        <td><a href="/admin/category/show/{{$item->id}}" class="btn btn-block btn-info">Show</a></td>
                       </tr>
                     @endforeach
                   </tbody>

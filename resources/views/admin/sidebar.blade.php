@@ -57,18 +57,6 @@
                                     <p>Kullanıcı Ekle</p>
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a href="{{asset('assets/adminLTE')}}/index3.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Kullanıcı Güncelle</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{asset('assets/adminLTE')}}/index3.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Kullanıcı Sil</p>
-                                </a>
-                            </li>
                         </ul>
                     </li>
                     

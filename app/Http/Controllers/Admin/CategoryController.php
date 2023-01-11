@@ -30,7 +30,10 @@ class CategoryController extends Controller
     public function create()
     {
         //
-        return view('admin.category.create');
+        $data = Category::all();
+        return view('admin.category.create',[
+            'data'=>$data
+        ]);
     }
 
     /**
@@ -59,9 +62,9 @@ class CategoryController extends Controller
      */
     public function show(Category $category, $id)
     {
-        $data = Category::find($category, $id);
+        $data = Category::find($id);
         return view('admin.category.show',[
-            'data' => $data
+            'data' => $data,
         ]);
     }
 
@@ -71,9 +74,14 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit(Category $category, $id)
     {
-        return view('admin.category.edit');
+        $data = Category::find($id);
+        $database = Category::all();
+        return view('admin.category.edit',[
+            'data' => $data,
+            'database' => $database
+        ]);
     }
 
     /**
@@ -85,7 +93,18 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $data = Category::find($request->id);
+
+        $data->parent_id = $request->parent_id;
+        $data->title = $request->title;
+        $data->keywords = $request->keywords;
+        $data->description = $request->description;
+        $data->image = $request->image;
+        $data->status = $request->status;
+        
+        $data->save();
+
+        return redirect('admin/category');
     }
 
     /**

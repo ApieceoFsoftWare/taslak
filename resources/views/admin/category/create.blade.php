@@ -37,9 +37,11 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label for="form-control">Parent ID</label>
-                        <select class="form-control" name="status">
-                            <option>Enable</option>
-                            <option>Disable</option>
+                        <select class="form-control" name="parent_id">
+                            <option>0</option>
+                            @foreach ($data as $item)
+                                <option>{{$item->id}}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="form-group">
