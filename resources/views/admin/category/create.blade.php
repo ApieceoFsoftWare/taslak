@@ -32,15 +32,15 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form role="form" action="/admin/category/store" method="post">
+            <form role="form" action="{{ route('admin.category.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
                     <div class="form-group">
-                        <label for="form-control">Parent ID</label>
+                        <label for="form-control">Parent Category</label>
                         <select class="form-control" name="parent_id">
-                            <option>0</option>
+                            <option value="0" selected="selected">Main Category</option>
                             @foreach ($data as $item)
-                                <option>{{$item->id}}</option>
+                                <option value="{{ $item->id }}">{{ \App\Http\Controllers\Admin\CategoryController::getParentsTree($item, $item->title) }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -63,16 +63,13 @@
                                 <input type="file" class="custom-file-input" id="exampleInputFile" name="image">
                                 <label for="exampleInputFile" class="custom-file-label">Choose File</label>
                             </div>
-                            <div class="input-group-append">
-                                <span class="input-group-text" id="">Upload</span>
-                            </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="form-control">Status</label>
                         <select class="form-control" name="status">
-                            <option>Enable</option>
-                            <option>Disable</option>
+                            <option  selected="selected" value="1">Enable</option>
+                            <option value="0">Disable</option>
                         </select>
                     </div>
                 </div>

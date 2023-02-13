@@ -1,6 +1,6 @@
 @extends('layouts.adminbase')
 
-@section('title', 'Show Category')
+@section('title', 'Show Advertisement')
 
 @section('content')
 <!-- Content Wrapper. Contains page content -->

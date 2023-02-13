@@ -40,7 +40,7 @@
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-edit"></i>
                             <p>
-                                Kullanıcı İşlemlemleri
+                                Kullanıcı İşlemleri
                                 <i class="right fas fa-angle-left"></i>
                             </p>
                         </a>
@@ -64,21 +64,45 @@
                         <a href="" class="nav-link">
                             <i class="nav-icon fas fa-edit"></i>
                             <p>
-                                Kategori İşlemlemleri
+                                Kategori İşlemleri
                                 <i class="right fas fa-angle-left"></i>
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="/admin/category" class="nav-link">
+                                <a href="{{ route('admin.category.index')}}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Kategorileri Listele</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="/admin/category/create" class="nav-link">
+                                <a href="{{ route('admin.category.create') }}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Kategori Ekle</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="" class="nav-link">
+                            <i class="nav-icon fas fa-edit"></i>
+                            <p>
+                                İlan İşlemleri
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ route('admin.advertisement.index')}}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>İlanları Listele</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('admin.advertisement.create') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>İlan Ekle</p>
                                 </a>
                             </li>
                         </ul>

@@ -5,9 +5,29 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
 {
+    /**
+     * getPaternsTree denilen fonksiyon, kategrolerin parent_id leri ile ilişkili olan bütün kategorileri
+     * bir ağaç düzenine sokar.
+     */
+    protected $appends =[
+        'getParentsTree'
+     ];
+
+     public static function getParentsTree($category, $title){
+        if($category->parent_id == 0)
+        {
+            return $title;
+        }
+
+        $parent = Category::find($category->parent_id);
+        $title = $parent->title.' > '.$title;
+        return CategoryController::getParentsTree($parent,$title);
+
+     }
     /**
      * Display a listing of the resource.
      *
@@ -16,9 +36,13 @@ class CategoryController extends Controller
     public function index()
     {
         //
+
+        /**
+         * view sayfasına $data değişkeni üzerinden çektiğimiz verileri göndermek için aşağıdaki gibi göndendermeliyiz... 
+         */
         $data = Category::all();
         return view('admin.category.index',[
-            'data'=>$data
+            'data' => $data
         ]);
     }
 
@@ -30,9 +54,12 @@ class CategoryController extends Controller
     public function create()
     {
         //
+        /**
+         * view sayfasına $data değişkeni üzerinden çektiğimiz verileri göndermek için aşağıdaki gibi göndendermeliyiz... 
+         */
         $data = Category::all();
         return view('admin.category.create',[
-            'data'=>$data
+            'data' => $data
         ]);
     }
 
@@ -45,13 +72,23 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $data = new Category();
-        $data->parent_id = 0;
+        $data->parent_id = $request->parent_id;
         $data->title = $request->title;
         $data->keywords = $request->keywords;
         $data->description = $request->description;
-        $data->image = $request->image;
-        $data->status = $request->status;
+        /**
+         * Burada kategorinin resmini upload ederken resmi hash olarak storage'daki public'in içindeki images'a kaydediyoruz.
+         * Ben ilk yaptığımda images oluşturulmamıştı elimle oluşturdum...
+         */
+        if($request->file('image')){
+            $data->image= $request->file('image')->store('public/images');
+        }
+        if (isset($request->status)) {
+            $data->status = $request->status;
+        }
+         
         $data->save();
+        return redirect('admin/category');
     }
 
     /**
@@ -99,8 +136,16 @@ class CategoryController extends Controller
         $data->title = $request->title;
         $data->keywords = $request->keywords;
         $data->description = $request->description;
-        $data->image = $request->image;
-        $data->status = $request->status;
+        /**
+         * Burada kategorinin resmini upload ederken resmi hash olarak storage'daki public'in içindeki images'a kaydediyoruz.
+         * Ben ilk yaptığımda images oluşturulmamıştı elimle oluşturdum...
+         */
+        if($request->file('image')){
+            $data->image= $request->file('image')->store('public/images');
+        }
+        if (isset($request->status)) {
+            $data->status = $request->status;
+        }
         
         $data->save();
 
@@ -113,8 +158,32 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy(Request $request, Category $category)
     {
         //
+        $data = Category::find($request->id);
+        
+        /**
+         * Kategorileri silerken dikkatli olmamız gerekiyor.
+         * Çünkü, bir kategori alt ve üst kategorilere sahip olabilir.
+         * Silerken sorgu yapmamız gerekecek!
+         */
+
+        if(isset($data->image)){
+            Storage::delete($data->image);
+        }
+        $data->delete();
+        return redirect('admin/category');
     }
+    
+    public static function destroyImage(Request $request, Category $category){
+        
+        $data = Category::find($request->id);
+        if(isset($data->image)){
+            Storage::delete($data->image);
+        }
+        return redirect('admin/category');
+
+    }
+
 }
