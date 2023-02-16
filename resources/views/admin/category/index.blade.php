@@ -67,9 +67,8 @@
                         <td class="text-danger">Disable</td>
                         @endif
                         <td align="center">
-                            @dump($item->image)
                           @if (isset($item->image))
-                            <img style="height: 50px; padding-left: 28px" src="{{ Storage::url($item->image) }}">    
+                            <img style="height: 140px; padding-left: 28px" src="{{ Storage::url($item->image) }}">    
                             <a href="{{ route('admin.category.destroyImage',['id'=>$item->id]) }}"><i style="color: red" class="fas fa-times"></i></a>
                           @endif
                         </td>

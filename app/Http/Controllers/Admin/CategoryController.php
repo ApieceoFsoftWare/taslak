@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
 {
@@ -181,9 +182,19 @@ class CategoryController extends Controller
         $data = Category::find($request->id);
         if(isset($data->image)){
             Storage::delete($data->image);
+            /**
+             * DB::statent ile yazdığımız Raw SQL'i kullanma amacımız resmi sadece "Storage::delete() fonksiyonu ile"
+             * sadece storage/app/public/images içerisinden silmek yerine aynı zamanda Database'deki ilgili hücreden de
+             * uzantısını silmemiz gerekiyor. Aşağıdaki kod bunun için. 
+             * Raw Sql ile yazmak problem çıkarır mı onu bilmiyorum bunu bulabildim :D
+             */
+            //DB::statement("UPDATE `categories` SET `image` = NULL WHERE `categories`.`id` = ".$data->id.";");
+            //Alttaki kod daha kolay yazımı :D
+            DB::table('categories')->where('id', $data->id)->update([
+                'image' => null
+            ]);
         }
         return redirect('admin/category');
-
     }
 
 }

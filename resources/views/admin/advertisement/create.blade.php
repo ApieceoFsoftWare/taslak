@@ -67,11 +67,11 @@
                 @csrf
                 <div class="card-body">
                     <div class="form-group">
-                        <label for="form-control">Category ID</label>
+                        <label for="form-control">Category Names</label>
                         <select class="form-control" name="category_id">
                             @foreach ($data_categories as $item)
                             @dump($item->category_id)
-                                <option value="{{ $item->id }}">{{ $item->id }}</option>
+                                <option value="{{ $item->id }}">{{ \App\Http\Controllers\Admin\CategoryController::getParentsTree($item, $item->title) }}</option>
                             @endforeach
                         </select>
                     </div>

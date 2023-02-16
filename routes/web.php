@@ -46,7 +46,7 @@ Route::prefix('/admin')->name('admin.')->group(function() {
         Route::get('/edit/{id}',        'edit')->name('edit');
         Route::post('/update/{id}',     'update')->name('update');
         Route::get('/destroy/{id}',     'destroy')->name('destroy');
-        route::get('/destroyimage/{id}', 'destroyimage')->name('destroyImage');
+        Route::get('/destroyimage/{id}', 'destroyimage')->name('destroyImage');
     });
     // Admin Advertisement Routes
     Route::prefix('/advertisement')->name('advertisement.')->controller(Admin\AdvertisementController::class)->group( function() {
@@ -58,5 +58,6 @@ Route::prefix('/admin')->name('admin.')->group(function() {
         Route::get('/edit/{id}',        'edit')->name('edit');
         Route::post('/update/{id}',     'update')->name('update');
         Route::get('/destroy/{id}',     'destroy')->name('destroy');
+        Route::get('/destroyimage/{id}', 'destroyimage')->name('destroyImage');
     });
 });
