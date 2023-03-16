@@ -41,7 +41,7 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="example1" class="table table-bordered table-striped">
+                <table id="example1" class="table table-bordered table-striped" style="align-content: center">
                   <thead>
                   <tr>
                     <th style="width: 10px">ID</th>
@@ -50,8 +50,9 @@
                     <th style="width: 100px">Title</th>
                     <th style="width: 100px">Status</th>
                     <th style="width: 100px">Image</th>
-                    <th style="width: 100px">Scoring</th>
-                    <th style="width: 100px">Deadline</th>
+                    <th style="width: 100px">Gallery</th>
+                    <th style="width: 70px">Scoring</th>
+                    <th style="width: 90px">Deadline</th>
                     <th>Updated Time</th>
                     <th style="width: 40px">Edit</th>
                     <th style="width: 40px">Delete</th>
@@ -72,11 +73,15 @@
                         @endif
                         <td align="center">
                           @if (isset($item->image))
-                            <img style="height: 140px; padding-left: 28px" src="{{ Storage::url($item->image) }}">    
-                            <a href="{{ route('admin.advertisement.destroyImage',['id'=>$item->id]) }}"><i style="color: red" class="fas fa-times"></i></a>
+                            <img style="height: 100px; display: flex; float: left" src="{{ Storage::url($item->image) }}">    
+                            <a href="{{ route('admin.advertisement.destroyImage',['id'=>$item->id]) }}" onclick="return confirm('Emin misin?')"><i style="color: red; line-height: 100px" class="fas fa-times"></i></a>
                           @endif
                         </td>
-                        
+                        <td>
+                          <button type="button" class="btn btn-block bg-gradient-secondary" style="display: block;">
+                            <a href="{{ route('admin.image.index', ['pid'=> $item->id]) }}" style="color: white;text-decoration: none"><i class="fa fa-image"></i> Gallery</a>
+                          </button>
+                        </th>
                         <td>{{ $item->scoring }}</td>
                         <td>{{ $item->deadline }}</td>
                         <td style="width: 100px">{{ $item->updated_at }}</td>
@@ -95,8 +100,9 @@
                       <th style="width: 100px">Title</th>
                       <th style="width: 100px">Status</th>
                       <th style="width: 100px">Image</th>
+                      <th style="width: 100px">Gallery</th>
                       <th style="width: 100px">Scoring</th>
-                      <th style="width: 100px">Deadline</th>
+                      <th style="width: 90px">Deadline</th>
                       <th>Updated Time</th>
                       <th style="width: 40px">Edit</th>
                       <th style="width: 40px">Delete</th>

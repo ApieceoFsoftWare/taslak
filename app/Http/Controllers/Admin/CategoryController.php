@@ -169,10 +169,7 @@ class CategoryController extends Controller
          * Çünkü, bir kategori alt ve üst kategorilere sahip olabilir.
          * Silerken sorgu yapmamız gerekecek!
          */
-
-        if(isset($data->image)){
-            Storage::delete($data->image);
-        }
+        
         $data->delete();
         return redirect('admin/category');
     }
@@ -180,7 +177,7 @@ class CategoryController extends Controller
     public static function destroyImage(Request $request, Category $category){
         
         $data = Category::find($request->id);
-        if(isset($data->image)){
+        if((Storage::exists($data->image) && $data->image)){
             Storage::delete($data->image);
             /**
              * DB::statent ile yazdığımız Raw SQL'i kullanma amacımız resmi sadece "Storage::delete() fonksiyonu ile"

@@ -168,17 +168,16 @@ class AdvertisementController extends Controller
     {
         //  
         $data = Advertisement::find($request->id);
-        if(isset($data->image)){
-            Storage::delete($data->image); 
-        }
+
         $data->delete();
+        
         return redirect('admin/advertisement');
 
     }
     public static function destroyImage(Request $request, Advertisement $advertisement){
         
         $data = Advertisement::find($request->id);
-        if(isset($data->image)){
+        if(Storage::exists($data->image) && $data->image){
             Storage::delete($data->image);
             //DB::statement("UPDATE `advertisements` SET `image` = NULL WHERE `advertisements`.`id` = ".$data->id.";");
             DB::table('advertisements')->where('id', $data->id)->update([

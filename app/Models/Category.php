@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     use HasFactory;
+    # One To Many
+
+    public function advertisements(): HasMany
+    {
+        return $this->hasMany(/*related:*/Advertisement::class);
+    }
 }

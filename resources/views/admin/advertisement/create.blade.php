@@ -84,8 +84,8 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Title</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter a title" name="title">
+                        <label for="exampleInputEmail1">Title*</label>
+                        <input required type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter a title" name="title">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Keywords</label>
