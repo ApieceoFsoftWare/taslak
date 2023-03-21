@@ -23,7 +23,7 @@
             <div class="row">
               @foreach ($data as $item)
                 <div class="col-sm-2">
-                  <a  href="{{ Storage::url($item->image) }}" data-toggle="lightbox" data-title="sample 1 - white" data-gallery="gallery">
+                  <a  href="{{ Storage::url($item->image) }}" data-toggle="lightbox" data-title="{{ $item->title }}" data-gallery="gallery">
                     <img src="{{ Storage::url($item->image) }}" class="img-fluid mb-2" alt="white sample">
                   </a>
                   <a href="{{ route('admin.image.destroy', ['id'=>$item->id,'pid'=>$data_advertisement->id]) }}" onclick="return confirm('Emin misin?')" class="btn btn-block btn-danger">Resmi Sil</a>
