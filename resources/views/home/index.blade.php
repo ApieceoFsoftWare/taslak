@@ -7,7 +7,7 @@
     <!-- Slider Area -->
     <section class="hero-slider">
         <!-- Single Slider -->
-        <div class="single-slider">
+        <div class="single-slider" style="background-image: url({{ Storage::url($data->banner_image) }})">
             <div class="container">
                 <div class="row no-gutters">
                     <div class="col-lg-9 offset-lg-3 col-12">
@@ -15,10 +15,10 @@
                             <div class="row">
                                 <div class="col-lg-7 col-12">
                                     <div class="hero-text">
-                                        <h1><span>UP TO 50% OFF </span>Shirt For Man</h1>
-                                        <p>Maboriosam in a nesciung eget magnae <br> dapibus disting tloctio in the find it pereri <br> odiy maboriosm.</p>
+                                        <h1><span>{{ $data->main_sub_title }} </span>{{ $data->main_title }}</h1>
+                                        <p>{{ $data->main_summary }}</p>
                                         <div class="button">
-                                            <a href="#" class="btn">Shop Now!</a>
+                                            <a href="#" class="btn">İlanlara Göz Atın!</a>
                                         </div>
                                     </div>
                                 </div>
@@ -41,7 +41,7 @@
                     <div class="single-banner">
                         <img src="https://via.placeholder.com/600x370" alt="#">
                         <div class="content">
-                            <p>Man's Collectons</p>
+                            <p>Man's Collections</p>
                             <h3>Summer travel <br> collection</h3>
                             <a href="#">Discover Now</a>
                         </div>

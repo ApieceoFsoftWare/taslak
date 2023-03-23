@@ -35,7 +35,15 @@ Route::middleware([
 // _-_-_-_-_-_-_-_-_-_-_-_-_-_-_ Admin Panel Routes _-_-_-_-_-_-_-_-_-_-_-_-_-_-_ \\
 
 Route::prefix('/admin')->name('admin.')->group(function() {
-    Route::get('/', [Admin\HomeController::class, 'index'])->name('index');
+    Route::get('/', [Admin\AdminHomeController::class, 'index'])->name('index');
+    
+    // Admin Home Pages
+    Route::prefix('/home')->name('home.')->controller(Admin\HomeController::class)->group( function() {
+        Route::get('/',                         'index')->name('index');
+        Route::get('/edit/{id}',                'edit')->name('edit');
+        Route::post('/update/{id}',             'update')->name('update');
+    });
+    
     // Admin Category Routes
     Route::prefix('/category')->name('category.')->controller(Admin\CategoryController::class)->group( function() {
         

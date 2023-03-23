@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="all-category">
-                        <h3 class="cat-heading"><i class="fa fa-bars" aria-hidden="true"></i>CATEGORIES</h3>
+                        <h3 class="cat-heading"><i class="fa fa-bars" aria-hidden="true"></i>Kategoriler</h3>
                         <ul class="main-category">
                             <li><a href="#">New Arrivals <i class="fa fa-angle-right" aria-hidden="true"></i></a>
                                 <ul class="sub-category">
@@ -78,8 +78,8 @@
                             <div class="navbar-collapse">
                                 <div class="nav-inner">
                                     <ul class="nav main-menu menu navbar-nav">
-                                        <li class="active"><a href="#">Home</a></li>
-                                        <li><a href="#">Product</a></li>
+                                        <li class="active"><a href="{{ route('home') }}">Teammate</a></li>
+                                        <li><a href="#">İlanlar</a></li>
                                         <li><a href="#">Service</a></li>
                                         <li><a href="#">Shop<i class="ti-angle-down"></i><span class="new">New</span></a>
                                             <ul class="dropdown">

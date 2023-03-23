@@ -79,9 +79,11 @@
               </div>
               
               <hr>
-              <div class="col-12 col-md-12 col-lg-4 order-1 order-md-2" style="display: -webkit-inline-box;"> 
-                <h3 class="text-primary"><i class="fas fa-info" style="line-height:55px"></i></h3>
-                <p class="text-muted" style="margin-left: 20px;line-height: 55px"><b>Parents Tree</b>: {{ $data->category}}</p>
+              <div class="col-12 col-md-12 col-lg-12 order-1 order-md-2" style="display: -webkit-inline-box;"> 
+                <h3 class="text-primary">
+                  <i class="fas fa-info" style="line-height:55px"></i>
+                </h3>
+                <p class="text-muted" style="margin-left: 20px;line-height:55px"><b>Parents Tree</b>: {{ \App\Http\Controllers\Admin\CategoryController::getParentsTree($data, $data->title)}}</p>
               </div>
               <hr>
               <div class="col-12 col-md-12 col-lg-12 order-1 order-md-2" style="display: -webkit-inline-box;"> 

@@ -73,7 +73,7 @@
                         @endif
                         <td align="center">
                           @if (isset($item->image))
-                            <img style="height: 100px; display: flex; float: left" src="{{ Storage::url($item->image) }}">    
+                            <img style="height: 100px; display: flex; float: left" src="{{ $banner_data }}">    
                             <a href="{{ route('admin.advertisement.destroyImage',['id'=>$item->id]) }}" onclick="return confirm('Emin misin?')"><i style="color: red; line-height: 100px" class="fas fa-times"></i></a>
                           @endif
                         </td>
