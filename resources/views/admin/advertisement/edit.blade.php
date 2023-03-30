@@ -66,7 +66,6 @@
                     <label for="form-control">Category ID</label>
                     <select class="form-control" name="category_id">
                         @foreach ($data_categories as $item)
-                        @dump($item->category_id)
                             <option value="{{ $item->id }}">{{ $item->id }}</option>
                         @endforeach
                     </select>
@@ -107,12 +106,28 @@
                     <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter Desired Features" name="desired_features" value="{{ $data->desired_features }}">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Progress Status</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter Progress Status" name="progress_status" value="{{ $data->progress_status }}">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Scoring</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter Scoring" name="scoring" value="{{ $data->scoring }}">
+                    <label for="exampleInputoption">Progress Status</label>
+                    <select class="form-control" name="progress_status" id="progress_status">
+                        @php
+                            $status = $data->progress_status;
+                            
+                            $progress_array = array(
+                                '0' => 'İlan Oluşturuldu!',
+                                '1' => 'Daha Başlarındayız!',
+                                '2' => 'Çok Yol Aldık!',
+                                '3' => 'Neredeyse Bitmek Üzere!',
+                                '4' => 'Tamamlandı!' 
+                            );
+                            $keys = array_keys($progress_array);
+                        @endphp
+                        @for ($i = 0; $i < count($keys); $i++)
+                            @if ($status == $progress_array[$i])
+                            <option selected value="{{ $keys[$i] }}">{{ $progress_array[$keys[$i]] }}</option>                                 
+                            @else
+                            <option value="{{ $keys[$i] }}">{{ $progress_array[$keys[$i]] }}</option>                                
+                            @endif
+                        @endfor    
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Number of People</label>
@@ -133,10 +148,19 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputFile">Image</label>
+                    <label for="exampleInputFile">List Image 262x328 px olmalıdır!</label>
                     <div class="input-group">
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="exampleInputFile" name="image">
+                            <input type="file" class="custom-file-input" id="exampleInputFile" name="list_image">
+                            <label for="exampleInputFile" class="custom-file-label">Choose File</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputFile">Detail Image 950x460 px olmalıdır!</label>
+                    <div class="input-group">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="exampleInputFile" name="detail_image">
                             <label for="exampleInputFile" class="custom-file-label">Choose File</label>
                         </div>
                     </div>

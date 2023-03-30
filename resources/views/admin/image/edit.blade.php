@@ -1,6 +1,6 @@
 @extends('layouts.adminbase')
 @php
-    $titleGlobal='Kategori Güncelleme';
+    $titleGlobal='Resim Güncelleme';
 @endphp
 @section('title', $titleGlobal)
 

@@ -17,25 +17,74 @@
       <div class="col-12">
         <div class="card card-primary">
           <div class="card-header">
+            <h4 class="card-title"><b>{{ $data_advertisement->title }}</b> Detay ve Liste Resimleri</h4>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              @if(Storage::exists($data_advertisement->detail_image || $data_advertisement->list_image))
+              <div class="col-sm-2">
+                <a  href="{{ Storage::url($data_advertisement->detail_image) }}" data-toggle="lightbox" data-title="Detay Resmi" data-gallery="gallery">
+                  <img src="{{ Storage::url($data_advertisement->detail_image) }}" class="img-fluid mb-2" alt="{{ $data_advertisement->title }} Detay Resmi">
+                </a>
+                <a href="{{ route('admin.advertisement.destroyDetailImage', ['id'=>$data_advertisement->id,'pid'=>$data_advertisement->id]) }}" onclick="return confirm('Emin misin?')" class="btn btn-block btn-danger">Resmi Sil</a>
+              </div>
+              <div class="col-sm-2">
+                <a  href="{{ Storage::url($data_advertisement->list_image) }}" data-toggle="lightbox" data-title="Liste Resmi" data-gallery="gallery">
+                  <img src="{{ Storage::url($data_advertisement->list_image) }}" class="img-fluid mb-2" alt="{{ $data_advertisement->title }} Liste Resmi">
+                </a>
+                <a href="{{ route('admin.advertisement.destroyListImage', ['id'=>$data_advertisement->id,'pid'=>$data_advertisement->id]) }}" onclick="return confirm('Emin misin?')" class="btn btn-block btn-danger">Resmi Sil</a>
+              </div>
+                 
+                
+              @else
+                <div class="info-box mb-3 bg-info">
+                  <span class="info-box-icon"><i class="far fa-comment"></i></span>
+    
+                  <div class="info-box-content">
+                    <span class="info-box-text">Gösterilecek resim yok!</span>
+                  </div>
+                  <!-- /.info-box-content -->
+                </div>
+              @endif
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="card card-primary">
+          <div class="card-header">
             <h4 class="card-title"><b>{{ $data_advertisement->title }}</b> Galerisi</h4>
           </div>
           <div class="card-body">
             <div class="row">
-              @foreach ($data as $item)
-                <div class="col-sm-2">
-                  <a  href="{{ Storage::url($item->image) }}" data-toggle="lightbox" data-title="{{ $item->title }}" data-gallery="gallery">
-                    <img src="{{ Storage::url($item->image) }}" class="img-fluid mb-2" alt="white sample">
-                  </a>
-                  <a href="{{ route('admin.image.destroy', ['id'=>$item->id,'pid'=>$data_advertisement->id]) }}" onclick="return confirm('Emin misin?')" class="btn btn-block btn-danger">Resmi Sil</a>
+              @if(count($data) != 0)
+                @foreach ($data as $item)
+                  <div class="col-sm-2">
+                    <a  href="{{ Storage::url($item->image) }}" data-toggle="lightbox" data-title="{{ $item->title }}" data-gallery="gallery">
+                      <img src="{{ Storage::url($item->image) }}" class="img-fluid mb-2" alt="white sample">
+                    </a>
+                    <a href="{{ route('admin.image.destroy', ['id'=>$item->id,'pid'=>$data_advertisement->id]) }}" onclick="return confirm('Emin misin?')" class="btn btn-block btn-danger">Resmi Sil</a>
+                  </div>
+                @endforeach
+              @else
+                <div class="info-box mb-3 bg-info">
+                  <span class="info-box-icon"><i class="far fa-comment"></i></span>
+    
+                  <div class="info-box-content">
+                    <span class="info-box-text">Gösterilecek resim yok!</span>
+                  </div>
+                  <!-- /.info-box-content -->
                 </div>
-              @endforeach
+              @endif
+              
             </div>
           </div>
         </div>
       </div>
       <div class="card card-primary">
         <div class="card-header">
-          <h3 class="card-title">Yeni Bir Resim Ekle</h3>
+          <h3 class="card-title">Galeriye Yeni Bir Resim Ekle</h3>
         </div>
         <!-- /.card-header -->
         <!-- form start -->
@@ -43,8 +92,8 @@
           @csrf
           <div class="card-body">
             <div class="form-group">
-              <label for="exampleInputEmail1">Resim Başlığı Giriniz</label>
-              <input type="text" class="form-control" id="exampleInputText1" placeholder="Başlık yazın" name="title">
+              <label for="exampleInputEmail1">Resim Başlığı Giriniz*</label>
+              <input required type="text" class="form-control" id="exampleInputText1" placeholder="Başlık yazın" name="title">
             </div>
             <div class="form-group">
               <label for="exampleInputFile">Eklenecek Resim</label>

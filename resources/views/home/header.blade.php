@@ -8,8 +8,8 @@
                     <!-- Top Left -->
                     <div class="top-left">
                         <ul class="list-main">
-                            <li><i class="ti-headphone-alt"></i> +060 (800) 801-582</li>
-                            <li><i class="ti-email"></i> support@shophub.com</li>
+                            <li><i class="ti-headphone-alt"></i> {{ $data_config->phone_number1 }}</li>
+                            <li><i class="ti-email"></i> {{ $data_config->mail1 }}</li>
                         </ul>
                     </div>
                     <!--/ End Top Left -->
@@ -18,10 +18,10 @@
                     <!-- Top Right -->
                     <div class="right-content">
                         <ul class="list-main">
-                            <li><i class="ti-location-pin"></i> Store location</li>
-                            <li><i class="ti-alarm-clock"></i> <a href="#">Daily deal</a></li>
-                            <li><i class="ti-user"></i> <a href="#">My account</a></li>
-                            <li><i class="ti-power-off"></i><a href="login.html#">Login</a></li>
+                            <!-- <li><i class="ti-location-pin"></i> Store location</li> -->
+                            <li><i class="ti-alarm-clock"></i> <a href="#">Çalışma Saatleri</a></li>
+                            <li><i class="ti-user"></i> <a href="#">Hesabım</a></li>
+                            <li><i class="ti-power-off"></i><a href="login.html#">Giriş</a></li>
                         </ul>
                     </div>
                     <!-- End Top Right -->
@@ -36,7 +36,7 @@
                 <div class="col-lg-2 col-md-2 col-12">
                     <!-- Logo -->
                     <div class="logo">
-                        <a href="index.html"><img src="{{ asset('assets') }}/images/logo.png" alt="logo"></a>
+                        <a href="index.html"><img src="{{ asset('assets') }}/images/Teammate-Logo.png" alt="logo"></a>
                     </div>
                     <!--/ End Logo -->
                     <!-- Search Form -->
@@ -45,7 +45,7 @@
                         <!-- Search Form -->
                         <div class="search-top">
                             <form class="search-form">
-                                <input type="text" placeholder="Search here..." name="search">
+                                <input type="text" placeholder="İlan arayın" name="search">
                                 <button value="search" type="submit"><i class="ti-search"></i></button>
                             </form>
                         </div>
@@ -58,13 +58,13 @@
                     <div class="search-bar-top">
                         <div class="search-bar">
                             <select>
-                                <option selected="selected">All Category</option>
-                                <option>watch</option>
-                                <option>mobile</option>
-                                <option>kid’s item</option>
+                                <option disabled selected="selected">Kategoriler</option>
+                                @foreach ($data_category as $item)
+                                    <option>{{ $item->title }}</option>    
+                                @endforeach
                             </select>
                             <form>
-                                <input name="search" placeholder="Search Products Here....." type="search">
+                                <input name="search" placeholder="İlan arayın" type="search">
                                 <button class="btnn"><i class="ti-search"></i></button>
                             </form>
                         </div>
@@ -78,10 +78,10 @@
                         </div>
                         <div class="sinlge-bar">
                             <a href="#" class="single-icon"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
-                        </div>
+                        </div><!--
                         <div class="sinlge-bar shopping">
                             <a href="#" class="single-icon"><i class="ti-bag"></i> <span class="total-count">2</span></a>
-                            <!-- Shopping Item -->
+                             Shopping Item 
                             <div class="shopping-item">
                                 <div class="dropdown-cart-header">
                                     <span>2 Items</span>
@@ -109,8 +109,9 @@
                                     <a href="checkout.html" class="btn animate">Checkout</a>
                                 </div>
                             </div>
-                            <!--/ End Shopping Item -->
+                            / End Shopping Item 
                         </div>
+                        -->
                     </div>
                 </div>
             </div>

@@ -31,7 +31,7 @@
         <!--/ End Single Slider -->
     </section>
     <!--/ End Slider Area -->
-
+    
     <!-- Start Small Banner  -->
     <section class="small-banner section">
         <div class="container-fluid">

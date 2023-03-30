@@ -20,12 +20,13 @@ return new class extends Migration
             $table->string('title');
             $table->string('keywords')->nullable();
             $table->string('description')->nullable();
-            $table->string('image')->nullable();
+            $table->string('detail_image')->nullable();
+            $table->string('list_image')->nullable();
             $table->string('topic')->nullable();
             $table->text('detail')->nullable();
             $table->string('desired_features')->nullable();
-            $table->string('progress_status')->nullable();
-            $table->string('scoring')->nullable();
+            $table->integer('progress_status')->nullable();
+            $table->integer('scoring')->nullable();
             $table->string('number_of_people')->nullable();
             $table->string('number_of_people_admitted')->nullable();
             $table->string('deadline')->nullable();

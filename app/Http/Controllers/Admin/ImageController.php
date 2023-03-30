@@ -103,9 +103,12 @@ class ImageController extends Controller
         if(Storage::exists($data->image) && $data->image){
             Storage::delete($data->image);
             //DB::statement("UPDATE `advertisements` SET `image` = NULL WHERE `advertisements`.`id` = ".$data->id.";");
+            /*
             DB::table('advertisements')->where('id', $data->id)->update([
                 'image' => null
-            ]);
+            ]); 
+            */
+            
         }
         $data->delete();
 

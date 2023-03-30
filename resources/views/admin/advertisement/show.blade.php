@@ -106,7 +106,7 @@
               
               <br>
               <div class="text-muted">
-                  <img style="height: 300px;" src="{{ Storage::url($data->image) }}">    
+                  <img style="height: 250px;" src="{{ Storage::url($data->image) }}">    
               </div>
               <br>
               

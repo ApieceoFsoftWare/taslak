@@ -31,6 +31,8 @@
 <link rel="stylesheet" href="{{ asset('assets') }}/admin/plugins/dropzone/min/dropzone.min.css">
 <!-- Theme style -->
 <link rel="stylesheet" href="{{ asset('assets') }}/admin/dist/css/adminlte.min.css">
+<!-- Summernote -->
+<link rel="stylesheet" href="{{ asset('assets') }}/summernote/summernote-bs4.min.css">
 @endsection
 
 @section('content')
@@ -112,11 +114,26 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Progress Status</label>
-                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter Progress Status" name="progress_status">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Scoring</label>
-                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter Scoring" name="scoring">
+                        <select class="form-control" name="progress_status" id="progress_status">
+                            @php
+                                $progress_array = array(
+                                    0 => 'İlan Oluşturuldu!',
+                                    1 => 'Daha Başlarındayız!',
+                                    2 => 'Çok Yol Aldık!',
+                                    3 => 'Neredeyse Bitmek Üzere!',
+                                    4 => 'Tamamlandı!' 
+                                );
+                                $keys = array_keys($progress_array);
+                            @endphp
+                            @for ($i = 0; $i < count($keys); $i++)
+                                @if ($keys[$i] == 0)
+                                    <option selected value="{{ $keys[$i] }}">{{ $progress_array[$keys[$i]] }}</option>                                 
+                                @else
+                                    <option disabled value="{{ $keys[$i] }}">{{ $progress_array[$keys[$i]] }}</option>                                
+                                @endif
+                            @endfor    
+                        </select>
+
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Number of People</label>
@@ -137,10 +154,19 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputFile">Image</label>
+                        <label for="exampleInputFile">List Image 262x328 px olmalıdır!</label>
                         <div class="input-group">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="exampleInputFile" name="image">
+                                <input type="file" class="custom-file-input" id="exampleInputFile" name="list_image">
+                                <label for="exampleInputFile" class="custom-file-label">Choose File</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputFile">Detail Image 950x460 px olmalıdır!</label>
+                        <div class="input-group">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="exampleInputFile" name="detail_image">
                                 <label for="exampleInputFile" class="custom-file-label">Choose File</label>
                             </div>
                         </div>
@@ -201,13 +227,13 @@
 <!-- Page specific script -->
 
 <!-- Summernote -->
-<script src="{{ asset('assets') }}/admin/plugins/summernote/summernote-bs4.min.js"></script>
+<script src="{{ asset('assets') }}/summernote/summernote-bs4.min.js"></script>
 
 <script>
     $(function () {
                
         // Summernote
-        $('#summernote').summernote()
+        $('#summernote').summernote();
     });
     
 </script>

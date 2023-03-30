@@ -51,7 +51,7 @@
                     <th style="width: 100px">Status</th>
                     <th style="width: 100px">Image</th>
                     <th style="width: 100px">Gallery</th>
-                    <th style="width: 70px">Scoring</th>
+                    <th style="width: 70px">Progress Status</th>
                     <th style="width: 90px">Deadline</th>
                     <th>Updated Time</th>
                     <th style="width: 40px">Edit</th>
@@ -73,8 +73,8 @@
                         @endif
                         <td align="center">
                           @if (isset($item->image))
-                            <img style="height: 100px; display: flex; float: left" src="{{ $banner_data }}">    
-                            <a href="{{ route('admin.advertisement.destroyImage',['id'=>$item->id]) }}" onclick="return confirm('Emin misin?')"><i style="color: red; line-height: 100px" class="fas fa-times"></i></a>
+                            <img style="height: 50px; display: flex; float: left" src="{{ Storage::url($item->detail_image) }}">    
+                            <a href="{{ route('admin.advertisement.destroyDetailImage',['id'=>$item->id]) }}" onclick="return confirm('Emin misin?')"><i style="color: red; line-height: 100px" class="fas fa-times"></i></a>
                           @endif
                         </td>
                         <td>
@@ -82,7 +82,35 @@
                             <a href="{{ route('admin.image.index', ['pid'=> $item->id]) }}" style="color: white;text-decoration: none"><i class="fa fa-image"></i> Gallery</a>
                           </button>
                         </th>
-                        <td>{{ $item->scoring }}</td>
+                        <td class="project_progress">
+                          <div class="progress progress-sm">
+                              @php
+                                   $progress_array = array(
+                                    0 => '10',
+                                    1 => '25',
+                                    2 => '50',
+                                    3 => '75',
+                                    4 => '100' 
+                                  );
+                                $keys = array_keys($progress_array);
+                                  
+                                  $progress_color_array = array(
+                                    0 => 'red',
+                                    1 => 'blue',
+                                    2 => 'yellow',
+                                    3 => 'orange',
+                                    4 => 'green' 
+                                  );
+                                $color_keys = array_keys($progress_color_array);
+                              @endphp
+
+                              <div class="progress-bar bg-{{ $progress_color_array[$color_keys[$item->progress_status]] }}" role="progressbar" aria-valuenow="57" aria-valuemin="0" aria-valuemax="100" style="width: {{ $progress_array[$keys[$item->progress_status]] }}%">
+                              </div>
+                          </div>
+                          <small>
+                              {{ $progress_array[$keys[$item->progress_status]] }}% Tamamlandı
+                          </small>
+                        </td>
                         <td>{{ $item->deadline }}</td>
                         <td style="width: 100px">{{ $item->updated_at }}</td>
                         <td><a href="{{ route('admin.advertisement.edit',['id'=> $item->id]) }}" class="btn btn-block btn-primary">Edit</a></td>
@@ -101,7 +129,7 @@
                       <th style="width: 100px">Status</th>
                       <th style="width: 100px">Image</th>
                       <th style="width: 100px">Gallery</th>
-                      <th style="width: 100px">Scoring</th>
+                      <th style="width: 100px">Progress Status</th>
                       <th style="width: 90px">Deadline</th>
                       <th>Updated Time</th>
                       <th style="width: 40px">Edit</th>

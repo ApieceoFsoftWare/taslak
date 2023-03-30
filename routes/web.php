@@ -32,6 +32,9 @@ Route::middleware([
 });
 
 
+Route::get('/advertisements', [HomeController::class, 'advertisements'])->name('advertisements');
+Route::get('/advertisement/{id}',[HomeController::class, 'advertisement'])->name('advertisement');
+
 // _-_-_-_-_-_-_-_-_-_-_-_-_-_-_ Admin Panel Routes _-_-_-_-_-_-_-_-_-_-_-_-_-_-_ \\
 
 Route::prefix('/admin')->name('admin.')->group(function() {
@@ -66,7 +69,8 @@ Route::prefix('/admin')->name('admin.')->group(function() {
         Route::get('/edit/{id}',        'edit')->name('edit');
         Route::post('/update/{id}',     'update')->name('update');
         Route::get('/destroy/{id}',     'destroy')->name('destroy');
-        Route::get('/destroyimage/{id}', 'destroyimage')->name('destroyImage');
+        Route::get('/destroyDetailImage/{id}',     'destroyDetailImage')->name('destroyDetailImage');
+        Route::get('/destroyListImage/{id}',     'destroyListImage')->name('destroyListImage');
     });
     //Admin Advertisement Image Gallery Routes
     Route::prefix('/image')->name('image.')->controller(Admin\ImageController::class)->group( function() {
@@ -75,5 +79,15 @@ Route::prefix('/admin')->name('admin.')->group(function() {
         Route::post('store/{pid}',            'store')->name('store');
         Route::post('/update/{pid}/{id}',     'update')->name('update');
         Route::get('/destroy/{pid}/{id}',     'destroy')->name('destroy');
+       
+
+    });
+     //Admin Config Routes
+     Route::prefix('/config')->name('config.')->controller(Admin\ConfigController::class)->group( function() {
+        Route::get('/',                  'index')->name('index');
+        Route::get('/create',           'create')->name('create');
+        Route::post('store',            'store')->name('store');
+        Route::post('/update',     'update')->name('update');
+        Route::get('/destroy',     'destroy')->name('destroy');
     });
 });

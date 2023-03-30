@@ -7,7 +7,7 @@
                     <div class="all-category">
                         <h3 class="cat-heading"><i class="fa fa-bars" aria-hidden="true"></i>Kategoriler</h3>
                         <ul class="main-category">
-                            <li><a href="#">New Arrivals <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                            <li><a href="#">Yeni İlan Kategorileri <i class="fa fa-angle-right" aria-hidden="true"></i></a>
                                 <ul class="sub-category">
                                     <li><a href="#">accessories</a></li>
                                     <li><a href="#">best selling</a></li>
@@ -20,7 +20,7 @@
                                     <li><a href="#">denim </a></li>
                                 </ul>
                             </li>
-                            <li class="main-mega"><a href="#">best selling <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                            <li class="main-mega"><a href="#">Son Eklenenler <i class="fa fa-angle-right" aria-hidden="true"></i></a>
                                 <ul class="mega-menu">
                                     <li class="single-menu">
                                         <a href="#" class="title-link">Shop Kid's</a>
@@ -60,6 +60,7 @@
                                     </li>
                                 </ul>
                             </li>
+                            <!--
                             <li><a href="#">accessories</a></li>
                             <li><a href="#">top 100 offer</a></li>
                             <li><a href="#">sunglass</a></li>
@@ -68,6 +69,7 @@
                             <li><a href="#">ladies</a></li>
                             <li><a href="#">westrn dress</a></li>
                             <li><a href="#">denim </a></li>
+                            -->
                         </ul>
                     </div>
                 </div>
@@ -79,7 +81,7 @@
                                 <div class="nav-inner">
                                     <ul class="nav main-menu menu navbar-nav">
                                         <li class="active"><a href="{{ route('home') }}">Teammate</a></li>
-                                        <li><a href="#">İlanlar</a></li>
+                                        <li><a href="{{ route('advertisements') }}">İlanlar</a></li>
                                         <li><a href="#">Service</a></li>
                                         <li><a href="#">Shop<i class="ti-angle-down"></i><span class="new">New</span></a>
                                             <ul class="dropdown">

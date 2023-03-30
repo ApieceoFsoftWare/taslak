@@ -63,14 +63,27 @@ class AdvertisementController extends Controller
         $data->keywords = $request->keywords;
         $data->description = $request->description;
         
-        if($request->file('image')){
-            $data->image= $request->file('image')->store('public/images');
+        if($request->file('list_image')){
+            $data->image= $request->file('list_image')->store('public/images');
+        }
+        if($request->file('detail_image')){
+            $data->image= $request->file('list_image')->store('public/images');
         }
         $data->topic = $request->topic;
         $data->detail = $request->detail;
         $data->desired_features = $request->desired_features;
-        $data->progress_status = $request->progress_status;
-        $data->scoring = $request->scoring;
+        
+        if ($request->progress_status == 1 ||
+            $request->progress_status == 2 ||
+            $request->progress_status == 3 ||
+            $request->progress_status == 4 ||
+            $request->progress_status == 5
+        ){
+            
+            $data->progress_status = $request->progress_status;
+        }        
+        
+        //$data->scoring = $request->scoring;
         $data->number_of_people = $request->number_of_people;
         $data->number_of_people_admitted = $request->number_of_people_admitted;
         $data->deadline = $request->deadline;
@@ -138,14 +151,26 @@ class AdvertisementController extends Controller
         $data->title = $request->title;
         $data->keywords = $request->keywords;
         $data->description = $request->description;
-        if($request->file('image')){
-            $data->image= $request->file('image')->store('public/images');
+        if($request->file('list_image')){
+            $data->image= $request->file('list_image')->store('public/images');
+        }
+        if($request->file('detail_image')){
+            $data->image= $request->file('list_image')->store('public/images');
         }
         $data->topic = $request->topic;
         $data->detail = $request->detail;
         $data->desired_features = $request->desired_features;
-        $data->progress_status = $request->progress_status;
-        $data->scoring = $request->scoring;
+        
+        if ($request->progress_status == 1 ||
+            $request->progress_status == 2 ||
+            $request->progress_status == 3 ||
+            $request->progress_status == 4 ||
+            $request->progress_status == 5
+        ){
+            
+            $data->progress_status = $request->progress_status;
+        }    
+        //$data->scoring = $request->scoring;
         $data->number_of_people = $request->number_of_people;
         $data->number_of_people_admitted = $request->number_of_people_admitted;
         $data->deadline = $request->deadline;
@@ -174,18 +199,33 @@ class AdvertisementController extends Controller
         return redirect('admin/advertisement');
 
     }
-    public static function destroyImage(Request $request, Advertisement $advertisement){
+    public static function destroyDetailImage(Request $request, Advertisement $advertisement, $pid){
         
         $data = Advertisement::find($request->id);
-        if(Storage::exists($data->image) && $data->image){
-            Storage::delete($data->image);
+        if(Storage::exists($data->detail_image) && $data->detail_image){
+            Storage::delete($data->detail_image);
             //DB::statement("UPDATE `advertisements` SET `image` = NULL WHERE `advertisements`.`id` = ".$data->id.";");
             DB::table('advertisements')->where('id', $data->id)->update([
-                'image' => null
+                'detail_image' => null
             ]);
         }
 
-        return redirect('admin/advertisement');
+        return redirect()->route('admin.image.index', ['pid'=>$pid]);
+
+    }
+    public static function destroyListImage(Request $request, Advertisement $advertisement, $pid){
+        
+        $data = Advertisement::find($request->id);
+        if(Storage::exists($data->list_image) && $data->list_image){
+            Storage::delete($data->list_image);
+            //DB::statement("UPDATE `advertisements` SET `image` = NULL WHERE `advertisements`.`id` = ".$data->id.";");
+            DB::table('advertisements')->where('id', $data->id)->update([
+                'list_image' => null
+            ]);
+        }
+        
+
+        return redirect()->route('admin.image.index', ['pid'=>$pid]);
 
     }
 }
