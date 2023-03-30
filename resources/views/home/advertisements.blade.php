@@ -138,14 +138,14 @@
 							<div class="single-product">
 								<div class="product-img">
 									<a href="{{ route('advertisement', ['id'=>$item->id]) }}">
-										<img class="default-img" src="{{ Storage::url($item->image) }}" alt="#">
-										<img class="hover-img" src="{{ Storage::url($item->image) }}" alt="#">
+										<img class="default-img" src="{{ Storage::url($item->list_image) }}" alt="#">
+										<img class="hover-img" src="{{ Storage::url($item->list_image) }}" alt="#">
 									</a>
 								</div>
 								<div class="product-content">
-									<h3><a href="product-details.html">{{ $item->title }}</a></h3>
+									<h3><a href="{{ route('advertisement', ['id'=>$item->id]) }}">{{ $item->title }}</a></h3>
 									<div class="product-price">
-										<span></span>
+										<span>{{ $item->topic }}</span>
 									</div>
 								</div>
 							</div>

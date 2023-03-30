@@ -64,10 +64,10 @@ class AdvertisementController extends Controller
         $data->description = $request->description;
         
         if($request->file('list_image')){
-            $data->image= $request->file('list_image')->store('public/images');
+            $data->list_image= $request->file('list_image')->store('public/images');
         }
         if($request->file('detail_image')){
-            $data->image= $request->file('list_image')->store('public/images');
+            $data->detail_image= $request->file('list_image')->store('public/images');
         }
         $data->topic = $request->topic;
         $data->detail = $request->detail;
@@ -152,13 +152,15 @@ class AdvertisementController extends Controller
         $data->keywords = $request->keywords;
         $data->description = $request->description;
         if($request->file('list_image')){
-            $data->image= $request->file('list_image')->store('public/images');
+            $data->list_image= $request->file('list_image')->store('public/images');
         }
         if($request->file('detail_image')){
-            $data->image= $request->file('list_image')->store('public/images');
+            $data->detail_image= $request->file('detail_image')->store('public/images');
         }
         $data->topic = $request->topic;
+
         $data->detail = $request->detail;
+        
         $data->desired_features = $request->desired_features;
         
         if ($request->progress_status == 1 ||
@@ -206,7 +208,7 @@ class AdvertisementController extends Controller
             Storage::delete($data->detail_image);
             //DB::statement("UPDATE `advertisements` SET `image` = NULL WHERE `advertisements`.`id` = ".$data->id.";");
             DB::table('advertisements')->where('id', $data->id)->update([
-                'detail_image' => null
+                'detail_image' => ''
             ]);
         }
 
@@ -216,11 +218,11 @@ class AdvertisementController extends Controller
     public static function destroyListImage(Request $request, Advertisement $advertisement, $pid){
         
         $data = Advertisement::find($request->id);
-        if(Storage::exists($data->list_image) && $data->list_image){
+        if(Storage::exists($data->list_image && $data->list_image)){
             Storage::delete($data->list_image);
             //DB::statement("UPDATE `advertisements` SET `image` = NULL WHERE `advertisements`.`id` = ".$data->id.";");
             DB::table('advertisements')->where('id', $data->id)->update([
-                'list_image' => null
+                'list_image' => ''
             ]);
         }
         

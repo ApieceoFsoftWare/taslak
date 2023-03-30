@@ -8,8 +8,8 @@
                     <!-- Top Left -->
                     <div class="top-left">
                         <ul class="list-main">
-                            <li><i class="ti-headphone-alt"></i> {{ $data_config->phone_number1 }}</li>
-                            <li><i class="ti-email"></i> {{ $data_config->mail1 }}</li>
+                            <li><i class="ti-headphone-alt"></i> {{ $data_config->phone_number1 ?? '' }}</li>
+                            <li><i class="ti-email"></i> {{ $data_config->mail1 ?? '' }}</li>
                         </ul>
                     </div>
                     <!--/ End Top Left -->

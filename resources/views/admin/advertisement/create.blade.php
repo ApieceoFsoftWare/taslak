@@ -103,8 +103,7 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Detail</label>
-                        <input type="text" hidden id="detail" name="detail">
-                        <textarea id="summernote">
+                        <textarea id="summernote" name="detail">
                             İlanınızı <b>detaylandırın.</b> 
                         </textarea>
                     </div>

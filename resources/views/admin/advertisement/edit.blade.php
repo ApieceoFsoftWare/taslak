@@ -83,8 +83,8 @@
                     <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter a title" name="title" value="{{ $data->title  }}">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Keywords</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter Keywords" name="keywords" value="{{  $data->keywords }}">
+                    <label for="exampleInputPassword1">Keywords - Virgül Koyarak Giriniz</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Örnek: Javascript, Html, CSS" name="keywords" value="{{  $data->keywords }}">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Description</label>
@@ -96,8 +96,7 @@
                 </div>                
                 <div class="form-group">
                     <label for="exampleInputPassword1">Detail</label>
-                    <input type="text" hidden id="detail" name="detail">
-                    <textarea id="summernote" name="editordata">
+                    <textarea id="summernote" name="detail">
                         {{ $data->detail }}
                     </textarea>
                   </div>
@@ -234,7 +233,7 @@
         $(document).ready(function() {
             $('#summernote').summernote();
         });
-
+       
         //Initialize Select2 Elements
         $('.select2').select2()
     

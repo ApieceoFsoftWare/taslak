@@ -1,13 +1,14 @@
 @extends('layouts.frontbase')
 
-@section('title', 'E-Commerce Project')
+@section('title', 'Teammate')
 
 @section('content')
-
+    
     <!-- Slider Area -->
     <section class="hero-slider">
         <!-- Single Slider -->
-        <div class="single-slider" style="background-image: url({{ Storage::url($data->banner_image) }})">
+
+        <div class="single-slider" style="background-image: url('{{ Storage::url($data->banner_image) }}') ">
             <div class="container">
                 <div class="row no-gutters">
                     <div class="col-lg-9 offset-lg-3 col-12">
@@ -15,8 +16,8 @@
                             <div class="row">
                                 <div class="col-lg-7 col-12">
                                     <div class="hero-text">
-                                        <h1><span>{{ $data->main_sub_title }} </span>{{ $data->main_title }}</h1>
-                                        <p>{{ $data->main_summary }}</p>
+                                        <h1><span>{{ $data->main_sub_title ?? '' }} </span>{{ $data->main_title ?? '' }}</h1>
+                                        <p>{{ $data->main_summary ?? '' }}</p>
                                         <div class="button">
                                             <a href="#" class="btn">İlanlara Göz Atın!</a>
                                         </div>

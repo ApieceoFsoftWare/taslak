@@ -17,15 +17,27 @@ class HomeController extends Controller
 {
     public function index(){
 
-        $data = Home::find(1);
-        $data_config = Config::find(1);
-        $data_category = Category::all();
-        
-        return view('home.index',[
-            'data'=> $data,
-            'data_config' => $data_config,
-            'data_category' => $data_category
-        ]);
+        if (Home::find(1) !== null || Config::find(1) !== null) {
+            # code...
+            $data = Home::find(1);
+            $data_config = Config::find(1);
+            $data_category = Category::all();
+            
+            return view('home.index',[
+                'data'=> $data,
+                'data_config' => $data_config,
+                'data_category' => $data_category
+            ]);
+        } 
+        else 
+        {
+            # code...
+            $data_category = Category::all();
+
+            return view('home.index', [
+                'data_category' => $data_category
+            ]);
+        }
     }
 
     public function advertisements(){

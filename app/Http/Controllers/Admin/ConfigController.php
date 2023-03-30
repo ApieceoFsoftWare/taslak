@@ -16,11 +16,21 @@ class ConfigController extends Controller
     public function index()
     {
         //
-        $data = Config::find(1);
-
-        return view('admin.config.index',[
-            'data' => $data
-        ]);
+        if (Config::find(1) !== null) {
+            # code...
+            $data = Config::find(1);
+            
+            return view('admin.config.index',[
+                'data' => $data
+            ]);
+        }
+        else
+        {
+            return redirect()->route('admin.index');
+        }
+        
+        
+        
     }
 
     /**

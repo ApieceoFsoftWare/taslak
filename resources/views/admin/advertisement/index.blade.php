@@ -72,7 +72,7 @@
                         <td class="text-danger">Disable</td>
                         @endif
                         <td align="center">
-                          @if (isset($item->image))
+                          @if (isset($item->detail_image))
                             <img style="height: 50px; display: flex; float: left" src="{{ Storage::url($item->detail_image) }}">    
                             <a href="{{ route('admin.advertisement.destroyDetailImage',['id'=>$item->id]) }}" onclick="return confirm('Emin misin?')"><i style="color: red; line-height: 100px" class="fas fa-times"></i></a>
                           @endif
@@ -86,24 +86,24 @@
                           <div class="progress progress-sm">
                               @php
                                    $progress_array = array(
-                                    0 => '10',
-                                    1 => '25',
-                                    2 => '50',
-                                    3 => '75',
-                                    4 => '100' 
+                                    0 => "10",
+                                    1 => "25",
+                                    2 => "50",
+                                    3 => "75",
+                                    4 => "100" 
                                   );
-                                $keys = array_keys($progress_array);
+                                  $keys = array_keys($progress_array);
                                   
                                   $progress_color_array = array(
-                                    0 => 'red',
-                                    1 => 'blue',
-                                    2 => 'yellow',
-                                    3 => 'orange',
-                                    4 => 'green' 
+                                    0 => "red",
+                                    1 => "blue",
+                                    2 => "yellow",
+                                    3 => "orange",
+                                    4 => "green"
                                   );
-                                $color_keys = array_keys($progress_color_array);
+                                  $color_keys = array_keys($progress_color_array);
                               @endphp
-
+                              
                               <div class="progress-bar bg-{{ $progress_color_array[$color_keys[$item->progress_status]] }}" role="progressbar" aria-valuenow="57" aria-valuemin="0" aria-valuemax="100" style="width: {{ $progress_array[$keys[$item->progress_status]] }}%">
                               </div>
                           </div>
