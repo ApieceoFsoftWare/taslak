@@ -40,11 +40,11 @@
                 <!-- Single Banner  -->
                 <div class="col-lg-4 col-md-6 col-12">
                     <div class="single-banner">
-                        <img src="https://via.placeholder.com/600x370" alt="#">
+                        <img src="{{ Storage::url($data->sub_banner_img1) }}" alt="600x370">
                         <div class="content">
-                            <p>Man's Collections</p>
-                            <h3>Summer travel <br> collection</h3>
-                            <a href="#">Discover Now</a>
+                            <p>{{ $data->sub_banner_img1_title }}</p>
+                            <h3>{{ $data->sub_banner_img1_sub_title }}</h3>
+                            <a href="#">{{ $data->sub_banner_img1_btn_title }}</a>
                         </div>
                     </div>
                 </div>
@@ -52,11 +52,11 @@
                 <!-- Single Banner  -->
                 <div class="col-lg-4 col-md-6 col-12">
                     <div class="single-banner">
-                        <img src="https://via.placeholder.com/600x370" alt="#">
+                        <img src="{{ Storage::url($data->sub_banner_img2) }}" alt="600x370">
                         <div class="content">
-                            <p>Bag Collectons</p>
-                            <h3>Awesome Bag <br> 2020</h3>
-                            <a href="#">Shop Now</a>
+                            <p>{{ $data->sub_banner_img2_title }}</p>
+                            <h3>{{ $data->sub_banner_img2_sub_title }}</h3>
+                            <a href="#">{{ $data->sub_banner_img2_btn_title }}</a>
                         </div>
                     </div>
                 </div>
@@ -64,11 +64,11 @@
                 <!-- Single Banner  -->
                 <div class="col-lg-4 col-12">
                     <div class="single-banner tab-height">
-                        <img src="https://via.placeholder.com/600x370" alt="#">
+                        <img src="{{ Storage::url($data->sub_banner_img3) }}" alt="600x370">
                         <div class="content">
-                            <p>Flash Sale</p>
-                            <h3>Mid Season <br> Up to <span>40%</span> Off</h3>
-                            <a href="#">Discover Now</a>
+                            <p>{{ $data->sub_banner_img3_title }}</p>
+                            <h3>{{ $data->sub_banner_img3_sub_title }}</h3>
+                            <a href="#">{{ $data->sub_banner_img3_btn_title }}</a>
                         </div>
                     </div>
                 </div>

@@ -63,11 +63,19 @@ class AdvertisementController extends Controller
         $data->keywords = $request->keywords;
         $data->description = $request->description;
         
-        if($request->file('list_image')){
+        if($request->file('list_image') && $request->file('list_image') !== null){
             $data->list_image= $request->file('list_image')->store('public/images');
         }
-        if($request->file('detail_image')){
-            $data->detail_image= $request->file('list_image')->store('public/images');
+        else
+        {
+            $data->list_image = ' ';
+        }
+        if($request->file('detail_image') && $request->file('detail_image') !== null){
+            $data->detail_image= $request->file('detail_image')->store('public/images');
+        }
+        else
+        {
+            $data->detail_image = ' ';
         }
         $data->topic = $request->topic;
         $data->detail = $request->detail;
@@ -151,12 +159,22 @@ class AdvertisementController extends Controller
         $data->title = $request->title;
         $data->keywords = $request->keywords;
         $data->description = $request->description;
-        if($request->file('list_image')){
+        
+        if($request->file('list_image') && $request->file('list_image') !== null){
             $data->list_image= $request->file('list_image')->store('public/images');
         }
-        if($request->file('detail_image')){
+        else
+        {
+            $data->list_image = asset('assets/images/Default_List_img.jpg');
+        }
+        if($request->file('detail_image') && $request->file('detail_image') !== null){
             $data->detail_image= $request->file('detail_image')->store('public/images');
         }
+        else
+        {
+            $data->detail_image = asset('assets/images/Default_Detail_img.jpg');;
+        }
+
         $data->topic = $request->topic;
 
         $data->detail = $request->detail;

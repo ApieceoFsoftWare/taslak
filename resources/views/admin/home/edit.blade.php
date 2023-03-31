@@ -70,6 +70,78 @@
                   </div>
                   <!-- Banner için içerikler sonu -->
 
+                  <!-- Sub Banner için içerikler -->
+
+                  <!-- 1 -->
+                  <div class="form-group">
+                    <label for="exampleInputFile">Sub Banner 1.Resmi</label>
+                    <div class="input-group">
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="exampleInputFile" name="sub_banner_img1">
+                        <label class="custom-file-label" for="exampleInputFile">Banner Resmi Seçin - 600x370 px</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputText4">Sub Banner 1 Title</label>
+                    <input type="text" class="form-control" id="exampleInputText4" value="{{ $data->sub_banner_img1_title }}" name="sub_banner_img1_title">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputText4">Sub Banner 1 Sub Title</label>
+                    <input type="text" class="form-control" id="exampleInputText4" value="{{ $data->sub_banner_img1_sub_title }}" name="sub_banner_img1_sub_title">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputText4">Sub Banner 1 Buton</label>
+                    <input type="text" class="form-control" id="exampleInputText4" value="{{ $data->sub_banner_img1_btn_title }}" name="sub_banner_img1_btn_title">
+                  </div>
+                  
+                  <!-- 2 -->
+                  <div class="form-group">
+                    <label for="exampleInputFile">Sub Banner 2.Resmi</label>
+                    <div class="input-group">
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="exampleInputFile" name="sub_banner_img2">
+                        <label class="custom-file-label" for="exampleInputFile">Banner Resmi Seçin - 600x370 px</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputText4">Sub Banner 2 Title</label>
+                    <input type="text" class="form-control" id="exampleInputText4" value="{{ $data->sub_banner_img2_title }}" name="sub_banner_img2_title">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputText4">Sub Banner 2 Sub Title</label>
+                    <input type="text" class="form-control" id="exampleInputText4" value="{{ $data->sub_banner_img2_sub_title }}" name="sub_banner_img2_sub_title">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputText4">Sub Banner 2 Buton</label>
+                    <input type="text" class="form-control" id="exampleInputText4" value="{{ $data->sub_banner_img2_btn_title }}" name="sub_banner_img2_btn_title">
+                  </div>
+                  <!-- 3 -->
+                  <div class="form-group">
+                    <label for="exampleInputFile">Sub Banner 3.Resmi</label>
+                    <div class="input-group">
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="exampleInputFile" name="sub_banner_img3">
+                        <label class="custom-file-label" for="exampleInputFile">Banner Resmi Seçin - 600x370 px</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputText4">Sub Banner 3 Title</label>
+                    <input type="text" class="form-control" id="exampleInputText4" value="{{ $data->sub_banner_img3_title }}" name="sub_banner_img3_title">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputText4">Sub Banner 3 Sub Title</label>
+                    <input type="text" class="form-control" id="exampleInputText4" value="{{ $data->sub_banner_img3_sub_title }}" name="sub_banner_img3_sub_title">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputText4">Sub Banner 3 Buton</label>
+                    <input type="text" class="form-control" id="exampleInputText4" value="{{ $data->sub_banner_img3_btn_title }}" name="sub_banner_img3_btn_title">
+                  </div>
+
+                  <!-- Sub Banner için içerikler sonu -->
+
                   <!-- İkini bölüm için içerikler -->
                   <div class="form-group">
                     <label for="exampleInputText4">İkinci Bölüm Başlık 1</label>

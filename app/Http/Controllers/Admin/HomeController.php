@@ -87,6 +87,32 @@ class HomeController extends Controller
         if($request->file('banner_image')){
             $data->banner_image = $request->file('banner_image')->store('public/images');
         }
+        // ----------------------------------Sub Banner Kaydı ------------------------------------- \\
+        
+        //Sub Banner Kaydı 1
+        if($request->file('sub_banner_img1')){
+            $data->sub_banner_img1 = $request->file('sub_banner_img1')->store('public/images');
+        }
+        $data->sub_banner_img1_title = $request->sub_banner_img1_title;
+        $data->sub_banner_img1_sub_title = $request->sub_banner_img1_sub_title;
+        $data->sub_banner_img1_btn_title = $request->sub_banner_img1_btn_title;
+        
+        //Sub Banner Kaydı 2
+        if($request->file('sub_banner_img2')){
+            $data->sub_banner_img2 = $request->file('sub_banner_img2')->store('public/images');
+        }
+        $data->sub_banner_img2_title = $request->sub_banner_img2_title;
+        $data->sub_banner_img2_sub_title = $request->sub_banner_img2_sub_title;
+        $data->sub_banner_img2_btn_title = $request->sub_banner_img2_btn_title;
+        
+        //Sub Banner Kaydı 3
+        if($request->file('sub_banner_img3')){
+            $data->sub_banner_img3 = $request->file('sub_banner_img3')->store('public/images');
+        }
+        $data->sub_banner_img3_title = $request->sub_banner_img3_title;
+        $data->sub_banner_img3_sub_title = $request->sub_banner_img3_sub_title;
+        $data->sub_banner_img3_btn_title = $request->sub_banner_img3_btn_title;
+
         // ---------------------------------------------------------------------------------- \\
         
         //İkinci bölümün kaydı

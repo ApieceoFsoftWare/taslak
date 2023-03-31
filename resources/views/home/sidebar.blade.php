@@ -82,13 +82,15 @@
                                     <ul class="nav main-menu menu navbar-nav">
                                         <li class="active"><a href="{{ route('home') }}">Teammate</a></li>
                                         <li><a href="{{ route('advertisements') }}">İlanlar</a></li>
-                                        <li><a href="#">Service</a></li>
+                                        <li><a href="#">Neler Bulabilirsin?</a></li>
+                                    <!-- 
                                         <li><a href="#">Shop<i class="ti-angle-down"></i><span class="new">New</span></a>
                                             <ul class="dropdown">
                                                 <li><a href="cart.html">Cart</a></li>
                                                 <li><a href="checkout.html">Checkout</a></li>
                                             </ul>
                                         </li>
+                                    
                                         <li><a href="#">Pages</a></li>
                                         <li><a href="#">Blog<i class="ti-angle-down"></i></a>
                                             <ul class="dropdown">
@@ -96,6 +98,8 @@
                                             </ul>
                                         </li>
                                         <li><a href="contact.html">Contact Us</a></li>
+                                    -->
+                                    <li><a href="contact.html">İletişim</a></li>
                                     </ul>
                                 </div>
                             </div>

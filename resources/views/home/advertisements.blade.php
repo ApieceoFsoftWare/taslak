@@ -152,7 +152,7 @@
 						</div>
 						@endforeach
 
-
+						<!--
 						<div class="col-lg-4 col-md-6 col-12">
 							<div class="single-product">
 								<div class="product-img">
@@ -392,7 +392,7 @@
 								</div>
 							</div>
 						</div>
-
+						-->
 					</div>
 				</div>
 			</div>
