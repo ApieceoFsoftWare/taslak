@@ -6,7 +6,23 @@
                 <div class="col-lg-3">
                     <div class="all-category">
                         <h3 class="cat-heading"><i class="fa fa-bars" aria-hidden="true"></i>Kategoriler</h3>
+                        
+                        @php
+                            $mainCategories = \App\Http\Controllers\HomeController::mainCategoryList();
+                        @endphp
                         <ul class="main-category">
+                            @foreach ($mainCategories as $item)
+                                
+                                    <li>
+                                        <a href="{{ route('advertisements',['id'=>$item->id, 'slug'=>$item->title]) }}">{{ $item->title }} <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                                        @if (count($item->children))
+                                            @include('home.categorySubTree', ['children'=>$item->children])
+                                        @endif
+                                    </li>
+                                
+                            @endforeach
+                        </ul>
+                            <!--
                             <li><a href="#">Yeni İlan Kategorileri <i class="fa fa-angle-right" aria-hidden="true"></i></a>
                                 <ul class="sub-category">
                                     <li><a href="#">accessories</a></li>
@@ -60,7 +76,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            <!--
+                            
                             <li><a href="#">accessories</a></li>
                             <li><a href="#">top 100 offer</a></li>
                             <li><a href="#">sunglass</a></li>
@@ -70,7 +86,7 @@
                             <li><a href="#">westrn dress</a></li>
                             <li><a href="#">denim </a></li>
                             -->
-                        </ul>
+                        
                     </div>
                 </div>
                 <div class="col-lg-9 col-12">

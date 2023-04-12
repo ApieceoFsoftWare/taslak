@@ -132,7 +132,6 @@
 						</div>
 					</div>
 					<div class="row">
-
 						@foreach ($advertisements as $item)
 						<div class="col-lg-4 col-md-6 col-12">
 							<div class="single-product">

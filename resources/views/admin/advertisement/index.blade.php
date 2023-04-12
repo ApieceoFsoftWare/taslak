@@ -47,8 +47,8 @@
                     <th style="width: 10px">ID</th>
                     <th style="width: 10px">Category ID</th>
                     <th style="width: 10px">User ID</th>
-                    <th style="width: 100px">Title</th>
-                    <th style="width: 100px">Status</th>
+                    <th style="width: 80px">Title</th>
+                    <th style="width: 50px">Status</th>
                     <th style="width: 100px">Image</th>
                     <th style="width: 100px">Gallery</th>
                     <th style="width: 70px">Progress Status</th>
@@ -72,12 +72,12 @@
                         <td class="text-danger">Disable</td>
                         @endif
                         <td align="center">
-                          @if (isset($item->detail_image))
-                            <img style="height: 50px; display: flex; float: left" src="{{ Storage::url($item->detail_image) }}">    
-                            <a href="{{ route('admin.advertisement.destroyDetailImage',['id'=>$item->id]) }}" onclick="return confirm('Emin misin?')"><i style="color: red; line-height: 100px" class="fas fa-times"></i></a>
+                          @if (isset($item->detail_image) && $item->detail_image !== '')
+                            <img style="width: 100%; display: flex; float: left" src="{{ Storage::url($item->detail_image) }}">    
+                            <a  style="width: 100%; display: inline-block; height: 20px; font-size: 14px; line-height: 50%" class="btn btn-block btn-danger" href="{{ route('admin.advertisement.destroyDetailImage',['id'=>$item->id]) }}" onclick="return confirm('Emin misin?')">Sil</a>
                           @endif
                         </td>
-                        <td>
+                        <td horizontal-align="center">
                           <button type="button" class="btn btn-block bg-gradient-secondary" style="display: block;">
                             <a href="{{ route('admin.image.index', ['pid'=> $item->id]) }}" style="color: white;text-decoration: none"><i class="fa fa-image"></i> Gallery</a>
                           </button>
@@ -125,8 +125,8 @@
                       <th style="width: 10px">ID</th>
                       <th style="width: 10px">Category ID</th>
                       <th style="width: 10px">User ID</th>
-                      <th style="width: 100px">Title</th>
-                      <th style="width: 100px">Status</th>
+                      <th style="width: 80px">Title</th>
+                      <th style="width: 50px">Status</th>
                       <th style="width: 100px">Image</th>
                       <th style="width: 100px">Gallery</th>
                       <th style="width: 100px">Progress Status</th>

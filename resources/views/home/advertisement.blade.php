@@ -17,9 +17,7 @@
 										<div class="blog-meta">
 											<span class="author"><a href="#"><i class="fa fa-user"></i>By Admin</a><a href="#"><i class="fa fa-calendar"></i>Dec 24, 2018</a><a href="#"><i class="fa fa-comments"></i>Comment (15)</a></span>
 										</div>
-										<div class="content">
-											{{ $advertisement->detail }}	
-										</div>
+										<div class="content" id="DetailText">{!! $advertisement->detail !!}</div>
 									</div>
 									<div class="share-social">
 										<div class="row">

@@ -108,11 +108,12 @@
                 
                 <br>
                 <div class="text-muted">
-                    <img style="height: 300px;" src="{{ Storage::url($data->image) }}">    
+                    <img style="max-width: -webkit-fill-available;" src="{{ Storage::url($data->image) }}">    
                 </div>
                 <br>
                 
                 <h5 class="mt-5 text-muted">Project files</h5>
+                
                 <ul class="list-unstyled">
                   <li>
                     <a href="" class="btn-link text-secondary"><i class="far fa-fw fa-file-word"></i> Functional-requirements.docx</a>
@@ -130,10 +131,12 @@
                     <a href="" class="btn-link text-secondary"><i class="far fa-fw fa-file-word"></i> Contract-10_12_2014.docx</a>
                   </li>
                 </ul>
+                
                 <div class="text-center mt-5 mb-3">
                   <a href="#" class="btn btn-sm btn-primary">Add files</a>
                   <a href="#" class="btn btn-sm btn-warning">Report contact</a>
                 </div>
+              
               </div>
             
           </div>

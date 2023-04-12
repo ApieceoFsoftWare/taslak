@@ -111,9 +111,9 @@
                     </div>
                     <div class="card-body">
                         <div class="callout callout-danger">
-                            <h5><b>Ana Başlık 1  :</b>{{ $data->sub_banner_img2_title ?? ''}}</h4>
-                            <h5><b>Alt Başlık 1:</b> {{ $data->sub_banner_img2_sub_title ?? '' }}</h5>
-                            <h5><b>Buton 1: </b> {{ $data->sub_banner_img2_btn_title ?? '' }}</h5>
+                            <h5><b>Ana Başlık 2  :</b>{{ $data->sub_banner_img2_title ?? ''}}</h4>
+                            <h5><b>Alt Başlık 2:</b> {{ $data->sub_banner_img2_sub_title ?? '' }}</h5>
+                            <h5><b>Buton 2: </b> {{ $data->sub_banner_img2_btn_title ?? '' }}</h5>
                             
                         </div>
                     </div>
@@ -131,9 +131,9 @@
                     </div>
                     <div class="card-body">
                         <div class="callout callout-info">
-                            <h5><b>Ana Başlık 1  :</b>{{ $data->sub_banner_img3_title ?? ''}}</h4>
-                            <h5><b>Alt Başlık 1:</b> {{ $data->sub_banner_img3_sub_title ?? '' }}</h5>
-                            <h5><b>Buton 1: </b> {{ $data->sub_banner_img3_btn_title ?? '' }}</h5>
+                            <h5><b>Ana Başlık 3  :</b>{{ $data->sub_banner_img3_title ?? ''}}</h4>
+                            <h5><b>Alt Başlık 3:</b> {{ $data->sub_banner_img3_sub_title ?? '' }}</h5>
+                            <h5><b>Buton 3: </b> {{ $data->sub_banner_img3_btn_title ?? '' }}</h5>
                             
                         </div>
                     </div>

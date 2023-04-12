@@ -32,8 +32,10 @@ Route::middleware([
 });
 
 
-Route::get('/advertisements', [HomeController::class, 'advertisements'])->name('advertisements');
+Route::get('/advertisements/{id?}/{slug?}', [HomeController::class, 'advertisements'])->name('advertisements');
 Route::get('/advertisement/{id}',[HomeController::class, 'advertisement'])->name('advertisement');
+Route::get('/categoryadvertisements/{id}/{slug}',[HomeController::class, 'categoryadvertisements'])->name('categoryadvertisements');
+
 
 // _-_-_-_-_-_-_-_-_-_-_-_-_-_-_ Admin Panel Routes _-_-_-_-_-_-_-_-_-_-_-_-_-_-_ \\
 

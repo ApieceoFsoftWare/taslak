@@ -15,8 +15,14 @@ use Illuminate\Support\Facades\Route;
 
 class HomeController extends Controller
 {
-    public function index(){
 
+    public static function mainCategoryList()
+    {
+        return Category::where('parent_id', '=', 0)->with('children')->get();
+    }
+
+    public function index()
+    {
         if (Home::find(1) !== null || Config::find(1) !== null) {
             # code...
             $data = Home::find(1);
@@ -39,12 +45,29 @@ class HomeController extends Controller
             ]);
         }
     }
+    
+    // public function categoryadvertisements($id){
+    //     $category = Category::find($id);
+    //     $advertisement = DB::table('advertisements')->where('category_id', $id)->get();
 
-    public function advertisements(){
+    //     return view('home.categoryadvertisements',[
+    //         'category' => $category,
+    //         'advertisement' => $advertisement
+    //     ]);
+    // }
 
-        $advertisements = Advertisement::all();
+    public function advertisements($id=null, $slug=null){
+
+        if ($id == null && $slug == null) {
+            # code...
+            $advertisements = Advertisement::all();
+        }
+        else{
+            $advertisements = DB::table('advertisements')->where('category_id', $id)->get();
+        }
+        $data_category = Category::all(); 
         $data_config = Config::find(1);
-        $data_category = Category::all();
+        
 
         return view('home.advertisements',[
             'advertisements' => $advertisements,
